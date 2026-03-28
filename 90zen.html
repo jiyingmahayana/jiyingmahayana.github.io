@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>90天·禅宗修道班报名通启</title>
+    <style>
+        /* ----- 重置 & 基础字体 ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #2c2e2a;  /* 深灰背景模拟装裱效果 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+            font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+        }
+
+        /* 海报主容器 — 严格尺寸 960x2657，宣纸肌理感 */
+        .poster {
+            width: 960px;
+            min-height: 2657px;
+            background: #FCF9F0;  /* 古宣纸暖白底 */
+            background-image: radial-gradient(circle at 10% 20%, rgba(210, 195, 170, 0.08) 2%, transparent 2.5%),
+                              radial-gradient(circle at 80% 70%, rgba(160, 140, 115, 0.05) 1.5%, transparent 2%);
+            background-size: 48px 48px, 36px 36px;
+            position: relative;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+            color: #2E2C28;
+        }
+
+        /* 顶部禅意区 — 沉稳松石色 */
+        .hero {
+            background: #4A5B4F;  /* 枯松绿，沉静庄严 */
+            padding: 72px 32px 48px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%);
+        }
+
+        .hero-title {
+            font-family: 'Noto Serif SC', 'Times New Roman', serif;
+            font-size: 84px;
+            font-weight: 900;
+            letter-spacing: 8px;
+            color: #FEF6E6;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero-sub {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 32px;
+            letter-spacing: 6px;
+            color: #E9E1CE;
+            font-weight: 400;
+            border-top: 1px solid rgba(255,245,225,0.4);
+            display: inline-block;
+            padding-top: 12px;
+            margin-top: 8px;
+        }
+
+        .hero-dates {
+            margin-top: 48px;
+            font-size: 22px;
+            letter-spacing: 2px;
+            background: rgba(0,0,0,0.25);
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+            font-weight: 500;
+            color: #FFFAEE;
+        }
+
+        /* 四字箴言 双联区块 (心坚志决 / 品高戒严) */
+        .motto-dual {
+            display: flex;
+            justify-content: space-between;
+            padding: 52px 68px;
+            background: #F4EFE3;
+            gap: 48px;
+            border-bottom: 1px solid #E0D8CA;
+        }
+
+        .motto-card {
+            flex: 1;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+        .motto-big {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1.2;
+            color: #8B6F4C;
+            writing-mode: horizontal-tb;
+            letter-spacing: 2px;
+            min-width: 88px;
+        }
+        .motto-desc {
+            font-size: 19px;
+            line-height: 1.75;
+            color: #4A4A44;
+            letter-spacing: 0.3px;
+        }
+        .motto-desc p {
+            margin-bottom: 6px;
+        }
+
+        /* 通用内容块 */
+        .section {
+            padding: 52px 68px;
+            border-bottom: 1px solid #E4DBCF;
+        }
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: #4A5B4F;
+            letter-spacing: 2px;
+            border-left: 5px solid #B29A6E;
+            padding-left: 20px;
+            margin-bottom: 28px;
+        }
+        .title-en {
+            font-size: 15px;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 2px;
+            color: #AA9B82;
+            margin-left: 12px;
+            font-weight: normal;
+        }
+
+        .list-item {
+            font-size: 20px;
+            line-height: 1.85;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            color: #3E3C36;
+        }
+        .list-item:before {
+            content: "·";
+            font-size: 28px;
+            font-weight: 500;
+            color: #B78C5A;
+            line-height: 1;
+        }
+
+        /* 特色双栏 */
+        .features-row {
+            display: flex;
+            gap: 50px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .features-text {
+            flex: 1.5;
+        }
+        .img-placeholder {
+            flex: 1;
+            background: #DDD5C4;
+            background-image: linear-gradient(145deg, #D1C6B2 0%, #E5DDCC 100%);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #6B5A44;
+            font-family: monospace;
+            min-height: 190px;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.05), 0 8px 18px rgba(0,0,0,0.05);
+        }
+        .img-placeholder span {
+            background: #FBF5EA;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* 底部作息+竖排文字+二维码 组合 */
+        .bottom-section {
+            display: flex;
+            gap: 40px;
+            padding: 52px 68px;
+            background: #FCF9F2;
+            border-bottom: 1px solid #E4DBCF;
+        }
+        .left-sidebar {
+            width: 210px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .vertical-text-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 12px;
+            background: #F2ECDF;
+            padding: 20px 12px;
+            border-radius: 24px;
+        }
+        .vertical-item {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: #5C6E5F;
+            letter-spacing: 4px;
+            line-height: 1.4;
+        }
+        .qr-box {
+            background: #FFFBF4;
+            border-radius: 24px;
+            text-align: center;
+            padding: 18px 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #E1D6C4;
+        }
+        .qr-placeholder {
+            width: 140px;
+            height: 140px;
+            background: repeating-linear-gradient(45deg, #CCC2AD, #CCC2AD 10px, #D9CFB8 10px, #D9CFB8 20px);
+            margin: 12px auto;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7C6A4C;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .qr-label {
+            font-size: 15px;
+            font-weight: 500;
+            color: #4F5E4A;
+            margin-top: 6px;
+        }
+
+        .schedule-wrapper {
+            flex: 1;
+        }
+        .schedule-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #4A5B4F;
+            text-align: center;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+        .schedule-note {
+            font-size: 13px;
+            text-align: center;
+            color: #AA9A80;
+            margin-bottom: 18px;
+            border-bottom: 1px dashed #DCCEBA;
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 6px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+            background: #FFFFFFD9;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+        }
+        th, td {
+            border: 1px solid #D9CEBB;
+            padding: 12px 6px;
+            vertical-align: middle;
+            color: #2F3A31;
+        }
+        th {
+            background: #E9E1D2;
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 700;
+            color: #4A5B4F;
+            font-size: 16px;
+        }
+        td {
+            background: #FEFCF7;
+        }
+
+        /* 页脚 金刚偈语 */
+        .footer-sutra {
+            background: #2D3A32;
+            padding: 36px 48px;
+            text-align: center;
+            color: #E6DDCD;
+        }
+        .footer-tags {
+            font-size: 20px;
+            letter-spacing: 4px;
+            word-break: keep-all;
+            margin-bottom: 18px;
+            font-weight: 400;
+            color: #CFC6B2;
+        }
+        .footer-verse {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 17px;
+            letter-spacing: 1.5px;
+            line-height: 1.6;
+            max-width: 80%;
+            margin: 0 auto;
+            border-top: 1px solid rgba(230,220,200,0.3);
+            padding-top: 22px;
+        }
+
+        /* 响应微调 — 保证960内布局完整 */
+        @media (max-width: 980px) {
+            .poster {
+                transform: scale(0.98);
+            }
+        }
+        /* 辅助强调 */
+        strong {
+            color: #8B6F4C;
+            font-weight: 700;
+        }
+        .inline-highlight {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<div class="poster">
+
+    <!-- 顶部主视觉 -->
+    <div class="hero">
+        <div class="hero-title">90天·禅宗修道班</div>
+        <div class="hero-sub">聚缘本体客 · 承传宗门禅</div>
+        <div class="hero-dates">
+            🌿 春季班 3.20 — 6.20 &nbsp;&nbsp;|&nbsp;&nbsp; 🍂秋季班 8.26 — 11.26 &nbsp;&nbsp; 每年两季
+        </div>
+    </div>
+
+    <!-- 四字箴言区块：心坚志决 & 品高戒严 精修版 -->
+    <div class="motto-dual">
+        <div class="motto-card">
+            <div class="motto-big">心坚<br>志决</div>
+            <div class="motto-desc">
+                道心坚韧 · 学风唯谛<br>
+                修为自持 · 信仰真挚<br>
+                笃重实行 · 超迈奔绝
+            </div>
+        </div>
+        <div class="motto-card">
+            <div class="motto-big">品高<br>戒严</div>
+            <div class="motto-desc">
+                内检其心 · 外束其身<br>
+                荡除习气 · 澡雪心神<br>
+                严持净戒 · 慎终如始
+            </div>
+        </div>
+    </div>
+
+    <!-- 课程体系 -->
+    <div class="section">
+        <div class="section-title">
+            课程体系 <span class="title-en">· SYSTEM ·</span>
+        </div>
+        <div>
+            <div class="list-item">依于“经律论”三藏，开设戒学·定学·慧学·禅法·清规·劳禅六类课程，形成体系化课程结构</div>
+            <div class="list-item">以“宗门禅”为核心，系统传授止观、道品、觉观、宗门禅法</div>
+            <div class="list-item">教学内容密集，学修强度极高，每月道业督导，每日精进日志</div>
+        </div>
+    </div>
+
+    <!-- 课程特色 + 图占位符（禅修实景意境） -->
+    <div class="section">
+        <div class="section-title">
+            课程特色 <span class="title-en">· FEATURES ·</span>
+        </div>
+        <div class="features-row">
+            <div class="features-text">
+                <div class="list-item"><strong>专业性：</strong>十年闭关实证，戒定慧次第教学</div>
+                <div class="list-item"><strong>科学性：</strong>遵循“原理-方法-技术”的逻辑体系</div>
+                <div class="list-item"><strong>系统性：</strong>纵向深入禅法，横向多学科融合</div>
+                <div class="list-item"><strong>落地性：</strong>注重实际操作，所学落实到生活</div>
+            </div>
+            <div class="img-placeholder">
+                <span>📿 禅堂行香 · 实修摄念</span><br>
+                <span style="font-size:12px; margin-top:8px;">[ 古刹禅修影像 ]</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 招生对象 -->
+    <div class="section">
+        <div class="section-title">
+            招生对象 <span class="title-en">· ADMISSION ·</span>
+        </div>
+        <div>
+            <div class="list-item">志在禅宗的在家学修弘扬者，或志在禅宗体系内出家者</div>
+            <div class="list-item">锐志于心性知识与技术，提升人生内在造诣者</div>
+            <div class="list-item">身心人格健全，能胜任高强度学习和修行训练者</div>
+            <div class="list-item">理性明敏、意志坚强、自觉性好、勤奋向上，依从性正常、无精神神经疾病、无破坏性</div>
+            <div class="list-item">年龄在<span class="inline-highlight">20~48岁</span>之间</div>
+        </div>
+    </div>
+
+    <!-- 核心底部区域: 竖排古风+双二维码 + 作息表（完全遵循原作息）-->
+    <div class="bottom-section">
+        <div class="left-sidebar">
+            <div class="vertical-text-group">
+                <div class="vertical-item">开启实修实证</div>
+                <div class="vertical-item">方见真如本性</div>
+                <div class="vertical-item">精神生命觉醒</div>
+                <div class="vertical-item">人生真正成就</div>
+            </div>
+            <div class="qr-box">
+                <div class="qr-placeholder">◈ 咨 询 ◈</div>
+                <div class="qr-label">微信报名咨询</div>
+                <div style="font-size:12px; margin-top:4px;">扫一扫 · 预约席位</div>
+            </div>
+            <div class="qr-box">
+                <div class="qr-placeholder">◈ 报 名 ◈</div>
+                <div class="qr-label">修道班报名表</div>
+                <div style="font-size:12px;">线上初审通道</div>
+            </div>
+        </div>
+
+        <div class="schedule-wrapper">
+            <div class="schedule-title">⛩️ 禅宗修道班 · 日常作息表</div>
+            <div style="text-align: center;">
+                <div class="schedule-note">提示：日常围绕 生活作息 | 上殿 | 过堂 | 出坡 | 讲课 | 禅修 六类行事</div>
+            </div>
+            <table>
+                <thead>
+                    <tr><th>时段</th><th>具体时间</th><th>内容</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td rowspan="5">🌄 早上</td><td>4:30</td><td>打板 · 起床</td></tr>
+                    <tr><td>4:45 – 5:30</td><td>朝课（早香）</td></tr>
+                    <tr><td>5:30 – 6:15</td><td>朝课</td></tr>
+                    <tr><td>6:15 – 6:30</td><td>早斋过堂</td></tr>
+                    <tr><td>6:30 – 7:20</td><td>自在禅</td></tr>
+                    <tr><td rowspan="3">☀️ 上午</td><td>7:20 – 8:00</td><td>普请（出坡/农禅）</td></tr>
+                    <tr><td>8:00 – 9:25</td><td>禅课</td></tr>
+                    <tr><td>9:35 – 10:55</td><td>讲习课</td></tr>
+                    <tr><td rowspan="2">🍚 中午</td><td>11:00 – 11:15</td><td>午斋过堂</td></tr>
+                    <tr><td>11:15 – 13:15</td><td>午禅</td></tr>
+                    <tr><td rowspan="4">🍃 下午</td><td>13:30 – 14:50</td><td>讲习课</td></tr>
+                    <tr><td>15:00 – 16:10</td><td>禅课</td></tr>
+                    <tr><td>16:20 – 17:00</td><td>晚课</td></tr>
+                    <tr><td>17:00 – 17:15</td><td>晚药石</td></tr>
+                    <tr><td rowspan="3">🌙 晚上</td><td>17:15 – 19:00</td><td>自在禅</td></tr>
+                    <tr><td>19:00 – 20:10</td><td>讲习课</td></tr>
+                    <tr><td>20:10 – 21:00</td><td>晚课（晚香）</td></tr>
+                    <tr><td>🌌 夜间养息</td><td>21:30 – 4:30</td><td>养息（计7小时）</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 底部金色禅语 + 关键词 -->
+    <div class="footer-sutra">
+        <div class="footer-tags">
+            行香坐香  ·  唱诵  ·  过堂  ·  问思  ·  出坡
+        </div>
+        <div class="footer-verse">
+            “ 不赠神通法宝 · 唯授破迷之剑 · 斩贪嗔痴慢疑 · 见自性菩提心 ”
+        </div>
+        <div style="margin-top: 20px; font-size: 12px; letter-spacing: 1px; color: #BCAE96;">
+            人生求道徑何在，大事窮究數禪宗。于此尘外禅林，共赴九十日修道之约。
+        </div>
+    </div>
+
+    <!-- 增加极简装饰线，仿经折韵味 -->
+    <div style="height: 4px; background: linear-gradient(90deg, #BFAE8A, #E3D5BF, #BFAE8A); width: 100%;"></div>
+</div>
+</body>
+</html>
